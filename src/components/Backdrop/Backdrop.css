@@ -6,13 +6,10 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.8);
-    transition: all 0.3s ease-out;
 }
 .BackdropOpen{
-    opacity: 1;
-    transform: translateY(0);
+    display: block;
 }
 .BackdropClose{
-    opacity: 0;
-    transform: translateY(-100%);
+    display: none;
 }
