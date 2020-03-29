@@ -15,13 +15,16 @@ class App extends Component {
   closeModal = () => {
     this.setState({ modalIsOpen: false });
   }
+  // Our modal and backdrop component is already present which is making the dom heavy so 
+  // it is better to introduce this.state.modalIsOpen for conditional presence 
+  // but issue with that closing modal behaviour is not upto the mark since we arev making the component null
 
   render() {
     return (
       <div className="App">
         <h1>React Animations</h1>
-        <Modal show={this.state.modalIsOpen} closed={this.closeModal}/>
-        <Backdrop show={this.state.modalIsOpen} />
+        {this.state.modalIsOpen ? <Modal show={this.state.modalIsOpen} closed={this.closeModal}/> : null}
+        {this.state.modalIsOpen ? <Backdrop show={this.state.modalIsOpen} />:null}
         <button className="Button" onClick={this.showModal}>Open Modal</button>
         <h3>Animating Lists</h3>
         <List />
